@@ -1,21 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addUser } from '../store/actions';
+import { addUser, resetTable } from '../store/actions';
 import UserForm from '../components/UserForm/UserForm';
 import UserTable from '../components/UserTable/UserTable';
 
-const UserContainer = ({users, addUser}) => {
-  console.log(users)
-  return (
- 
+const UserContainer = ({users, addUser, resetTable}) => (
   <div>
     <UserForm addUser={addUser} />
-    <UserTable users={users} />
+    <UserTable users={users} resetTable={resetTable} />
   </div>
-)};
+);
 
 const mapDispatchToProps = {
   addUser,
+  resetTable,
 };
 
 const mapStateToProps = state => {

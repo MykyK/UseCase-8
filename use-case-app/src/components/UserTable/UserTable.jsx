@@ -1,8 +1,9 @@
 import React from 'react';
 import './UserTable.css';
 
-const UserTable = ({ users }) => (
-  <table>
+const UserTable = ({ users, resetTable }) => (
+<div>
+<table>
     <thead>
       <tr>
         <th>First Name</th>
@@ -12,8 +13,8 @@ const UserTable = ({ users }) => (
       </tr>
     </thead>
     <tbody>
-      {users?.map(user => (
-        <tr key={user.id}>
+      {users?.map((user, index) => (
+        <tr key={user.firstName + index}>
           <td>{user.firstName}</td>
           <td>{user.lastName}</td>
           <td>{user.email}</td>
@@ -22,6 +23,8 @@ const UserTable = ({ users }) => (
       ))}
     </tbody>
   </table>
+  <button onClick={resetTable}>Reset Table</button>
+</div>
 );
 
 export default UserTable;
