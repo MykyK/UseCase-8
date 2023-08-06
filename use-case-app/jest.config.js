@@ -12,5 +12,6 @@ module.exports = {
     "/node_modules/(?!your-dependency-to-be-transpiled)"
   ],
   collectCoverage: true,
-  coverageReporters: ['text', 'html'],
+  coverageReporters: ["lcov", "text"],
+  coverageDirectory: 'coverage',
 };
