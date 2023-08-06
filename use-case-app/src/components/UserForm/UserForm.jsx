@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import validator from 'validator';
-import { addUser } from '../../store/actions';
 import './UserForm.css';
 
-const UserForm = ({ users, addUser }) => {
-  console.log(users)
+const UserForm = ({ addUser }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -49,13 +46,8 @@ const UserForm = ({ users, addUser }) => {
     
     if (!email || email === '') newErrors.email = 'Cannot be blank!';
     else if (!validator.isEmail(email)) newErrors.email = 'Please enter a valid email!';
-    if (message.length < 10) {
-      setErrors(() => ({
-        message: ' message should not be empty. message should be minimum 10 characters'
-      }))
-    };
-
     
+    if (message.length < 10) newErrors.message = 'Message should not be empty. message should be minimum 10 characters';
     if (!message || message === '') newErrors.message = 'Cannot be blank!';
 
     return newErrors;
@@ -107,8 +99,5 @@ const UserForm = ({ users, addUser }) => {
   );
 };
 
-const mapDispatchToProps = {
-  addUser,
-};
 
-export default connect(null, mapDispatchToProps)(UserForm);
+export default UserForm;
