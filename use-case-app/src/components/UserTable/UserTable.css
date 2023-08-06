@@ -11,6 +11,11 @@ th, td {
   padding: 8px;
 }
 
+td {
+  max-width: 300px;
+  overflow: auto;
+}
+
 th {
   background: #007bff;
   color: white;

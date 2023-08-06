@@ -13,8 +13,8 @@ const UserTable = ({ users, resetTable }) => (
       </tr>
     </thead>
     <tbody>
-      {users?.map((user, index) => (
-        <tr key={user.firstName + index}>
+      {users?.map((user) => (
+        <tr key={user.firstName + user.email}>
           <td>{user.firstName}</td>
           <td>{user.lastName}</td>
           <td>{user.email}</td>
