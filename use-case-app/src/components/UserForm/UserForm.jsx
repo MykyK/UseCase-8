@@ -49,6 +49,11 @@ const UserForm = ({ users, addUser }) => {
     
     if (!email || email === '') newErrors.email = 'Cannot be blank!';
     else if (!validator.isEmail(email)) newErrors.email = 'Please enter a valid email!';
+    if (message.length < 10) {
+      setErrors(() => ({
+        message: ' message should not be empty. message should be minimum 10 characters'
+      }))
+    };
 
     
     if (!message || message === '') newErrors.message = 'Cannot be blank!';
